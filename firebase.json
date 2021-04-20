@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "quiz-app-andre",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
+
+
