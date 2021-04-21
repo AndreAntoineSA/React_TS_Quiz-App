@@ -58,26 +58,30 @@ function App() {
     }
 
   }
-  
+
   return (
-    <div className="App">
-      <h1>React Quiz</h1>
-      { quizOver || userAnswers.length === TOTAL_QUESTIONS ? <button onClick={startQuiz}>Start</button>
-        : ''}
-      {!quizOver && <p>Score:{score}</p>}
-      {loading && <p>loading questions..</p>}
-      {!loading && !quizOver && (
-        <QuestionCard
-          questionNr={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-          question={questions[number].question}
-          answers={questions[number].answers}
-          userAnswer={userAnswers ? userAnswers[number] : undefined}
-          callback={checkAnswer}
-        />
-      )}
-      {!quizOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (<button onClick={nextQuestion}>NextQuestion</button>
-      ) : ''}
+    <div className="container-flex bg-gray-50 h-screen mx-auto">
+      <div className="flex flex-col items-center">
+
+        <h6 className="text-4xl text-blue-500 m-5">React Quiz</h6>
+        {quizOver || userAnswers.length === TOTAL_QUESTIONS ? <button className="border focus:outline-none p-2 px-4 bg-white rounded m-5" onClick={startQuiz}>Start</button>
+          : ''}
+        {!quizOver && <p className="text-blue-800 text-lg">Score&nbsp;:&nbsp;{score}</p>}
+        {loading && <p>loading questions..</p>}
+        {!loading && !quizOver && (
+          <QuestionCard
+            questionNr={number + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number].question}
+            answers={questions[number].answers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
+          />
+        )}
+        {!quizOver && !loading && userAnswers.length === number + 1 && number !== TOTAL_QUESTIONS - 1 ? (<button className="mt-10 border p-2 px-4 focus:outline-none rounded bg-blue-100" onClick={nextQuestion}>Next Question</button>
+        ) : ''}
+      </div>
+
     </div>
   );
 }
